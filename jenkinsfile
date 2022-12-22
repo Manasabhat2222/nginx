@@ -25,11 +25,5 @@ pipeline {
                 sh 'docker push manasabhat2222/nginx'
             }
         }
-
-stage('push image') {
-            steps{
-                sh 'docker push manasabhat2222/nginx'
-            }
-        }
 }
 }
