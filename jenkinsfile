@@ -4,15 +4,15 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('docker-nginx')
     }
     stages { 
-        stage('SCM Checkout') {
+        stage('Dockerfile') {
             steps{
-            git 'https://github.com/ravdy/nodejs-demo.git'
+            git branch: 'main', url: 'https://github.com/Manasabhat2222/nginx.git'
             }
         }
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t valaxy/nodeapp:$BUILD_NUMBER .'
+                sh 'docker build -t manasabhat2222/nginx .'
             }
         }
         stage('login to dockerhub') {
@@ -22,13 +22,14 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push valaxy/nodeapp:$BUILD_NUMBER'
+                sh 'docker push manasabhat2222/nginx'
+            }
+        }
+
+stage('push image') {
+            steps{
+                sh 'docker push manasabhat2222/nginx'
             }
         }
 }
-post {
-        always {
-            sh 'docker logout'
-        }
-    }
 }
