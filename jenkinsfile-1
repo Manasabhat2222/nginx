@@ -20,7 +20,7 @@ pipeline {
         
         stage('RUN') {
         steps {
-        sh 'docker run -d -p 8000:80 manasabhat2222/nginx:$BUILD_NUMBER'
+        sh 'docker run -d -p 9000:80 manasabhat2222/nginx:$BUILD_NUMBER'
         }
         }
         }
