@@ -11,8 +11,8 @@ pipeline {
         steps {
         withCredentials([usernamePassword(credentialsId: 'docker-nginx', passwordVariable: 'PASSWORD', usernameVariable: 'USER')]) {
         sh '''
-        curl -XPOST 'https://login.docker.com/u/login/identifier?state=hKFo2SA3S2pjdWp0REVlWWhSWDlDN29DMElscHl1dVdVY0JCd6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHVOeHZoSXR4S1hxamEzRTk1V3M2UTVZeWJ2Znk1dklyo2NpZNkgbHZlOUdHbDhKdFNVcm5lUTFFVnVDMGxiakhkaTluYjk' --user ${USER}:${PASSWORD}
-         docker push manasabhat2222/nginx  
+        curl -XPOST 'https://login.docker.com/u/login/password?state=hKFo2SA3S2pjdWp0REVlWWhSWDlDN29DMElscHl1dVdVY0JCd6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHVOeHZoSXR4S1hxamEzRTk1V3M2UTVZeWJ2Znk1dklyo2NpZNkgbHZlOUdHbDhKdFNVcm5lUTFFVnVDMGxiakhkaTluYjk' --user ${USER}:${PASSWORD}
+         docker push manasabhat2222/nginx:$BUILD_NUMBER 
            '''
            }
             }
