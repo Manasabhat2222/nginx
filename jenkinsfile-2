@@ -11,7 +11,7 @@ pipeline {
         steps {
         withCredentials([usernameColonPassword(credentialsId: 'docker-nginx', variable: 'DOCKER_CREDENTIALS')]) {
         sh '''
-        docker login -u username --password-stdin ${DOCKER_CREDENTIALS} 
+        docker login --password-stdin ${DOCKER_CREDENTIALS} 
          docker push manasabhat2222/nginx:$BUILD_NUMBER 
            '''
            }
