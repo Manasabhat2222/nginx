@@ -1,15 +1,9 @@
 pipeline {
-    agent { label 'cproj' } 
+    agent { Dockerfile true } 
     environment {
     DOCKERHUB_CREDENTIALS = credentials('docker-nginx')
     }
     stages { 
-        stage('Dockerfile') {
-            steps{
-            git branch: 'main', url: 'https://github.com/Manasabhat2222/nginx.git'
-            }
-        }
-
         stage('Build docker image') {
             steps {  
                 sh 'docker build -t manasabhat2222/nginx:$BUILD_NUMBER .'
