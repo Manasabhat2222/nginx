@@ -6,7 +6,7 @@ pipeline {
     stages { 
         stage('Build docker image') {
             steps {  
-                sh 'docker tag nginx manasabhat2222/nginx:$BUILD_NUMBER .'
+                sh 'docker tag nginx manasabhat2222/nginx:$BUILD_NUMBER'
             }
         }
         stage('login to dockerhub') {
