@@ -9,9 +9,9 @@ pipeline {
         }
         stage('login to dockerhub') {
         steps {
-        withCredentials([usernamePassword(credentialsId: 'docker-nginx', passwordVariable: 'PASSWORD', usernameVariable: 'USER')]) {
+        withCredentials([usernameColonPassword(credentialsId: 'docker-nginx', variable: 'DOCKER_CREDENTIALS')]) {
         sh '''
-        docker login -u USER -p ${PASSWORD}
+        docker login -u username -p ${dockerpwd}
          docker push manasabhat2222/nginx:$BUILD_NUMBER 
            '''
            }
