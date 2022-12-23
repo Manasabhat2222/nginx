@@ -24,10 +24,5 @@ pipeline {
         sh 'docker run -d -p 8000:80 manasabhat2222/nginx:$BUILD_NUMBER'
         }
         }
-        post {
-        always {
-            sh 'docker logout'
         }
-    }
-}
 }
