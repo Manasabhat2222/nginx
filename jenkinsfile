@@ -6,7 +6,7 @@ pipeline {
     stages { 
         stage('Build docker image') {
             steps {  
-                sh 'docker tag 882fdcec6a15e7bbd7c7e1f1b39b17de6a10ff1b manasabhat2222/nginx:$BUILD_NUMBER'
+                sh 'docker tag 882fdcec6a15e7bbd7c7e1f1b39b17de6a10ff1b:latest manasabhat2222/nginx:$BUILD_NUMBER'
             }
         }
         stage('login to dockerhub') {
