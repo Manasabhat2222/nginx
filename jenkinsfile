@@ -1,5 +1,5 @@
 pipeline {
-    agent { dockerfile true } 
+    agent { label 'cproj' } 
     environment {
     DOCKERHUB_CREDENTIALS = credentials('docker-nginx')
     }
